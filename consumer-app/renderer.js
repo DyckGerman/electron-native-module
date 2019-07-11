@@ -1,6 +1,7 @@
 const { customMediaStream } = require('electron');
+const capturer = require('capturer/build/Release/capturer.node');
+
 const videoElem = document.getElementById('video-element');
-const capturer = require('./native_module/build/Release/capturer.node');
 
 let track = customMediaStream.createTrack({
     info: {

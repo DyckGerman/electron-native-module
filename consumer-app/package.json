@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "capturer": "file:../capturer",
     "nan": "^2.14.0"
   }
 }

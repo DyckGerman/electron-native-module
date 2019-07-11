@@ -2,8 +2,7 @@
 #include <iostream>
 
 #include <nan.h>
-#include <v8/include/v8.h>
-#include <electron/shell/common/api/custom_media_stream.h>
+#include <custom_media_stream.h>
 
 namespace CMS = CustomMediaStream;
 
@@ -20,7 +19,7 @@ NAN_METHOD(startCapture) {
     return;
   }
 
-  auto cb = CMS::VideoFrameCallbackHolder::unwrap(info.GetIsolate(), info[0]->ToObject());
+  auto cb = CMS::VideoFrameCallbackHolder::unwrap(info.GetIsolate(), info[0]->ToObject(info.GetIsolate()));
 
   if(!cb) {
     Nan::ThrowTypeError("cannot unwrap CustomMediaStream::VideoFrameCallback");
