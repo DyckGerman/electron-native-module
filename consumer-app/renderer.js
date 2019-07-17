@@ -18,9 +18,9 @@ let track = customMediaStream.createTrack({
         //     // frame.y, frame.u and frame.v are ArrayBuffers
         //     // containing pixels from each color plane
         //     console.log(frame);
-        //     new Uint8Array(frame.y).fill((69 + i++) % 256); // filling the buffer with color red
-        //     new Uint8Array(frame.u).fill(139);
-        //     new Uint8Array(frame.v).fill(93);
+        //     // new Uint8Array(frame.y).fill((69 + i++) % 256); // filling the buffer with color red
+        //     // new Uint8Array(frame.u).fill(139);
+        //     // new Uint8Array(frame.v).fill(93);
 
         //     controller.queueFrame(frame, Date.now());
         // }, 1000);
