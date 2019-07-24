@@ -14,7 +14,7 @@ std::shared_ptr<CMS::VideoFrameCallbackHolder> callback;
 NAN_METHOD(startCapture) {
   std::cerr << "addCaptureStreamToMediaStream" << info.Length() << std::endl;
 
-  auto cb = CMS::VideoFrameCallbackHolder::unwrap(info.GetIsolate(), info.Data());
+  auto cb = CMS::VideoFrameCallbackHolder::unwrap(info.GetIsolate(), info[0]->ToObject());
   if(cb == NULL) {
     Nan::ThrowTypeError("cannot unwrap CustomMediaStream::VideoFrameCallback");
     return;

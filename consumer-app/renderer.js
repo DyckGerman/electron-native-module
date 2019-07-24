@@ -1,5 +1,5 @@
 const { customMediaStream } = require('electron');
-const capturer = require('capturer/build/Release/capturer.node');
+const capturer = require('capturer/build/Debug/capturer.node');
 
 const videoElem = document.getElementById('video-element');
 
@@ -9,21 +9,7 @@ let track = customMediaStream.createTrack({
         frameRate: 30
     },
     startCapture: (controller) => {
-
-        var a = capturer.startCapture(controller);
-        // let i = 0;
-        // this.interval = setInterval(() => {
-        //     let frame = controller.allocateFrame();
-
-        //     // frame.y, frame.u and frame.v are ArrayBuffers
-        //     // containing pixels from each color plane
-        //     console.log(frame);
-        //     // new Uint8Array(frame.y).fill((69 + i++) % 256); // filling the buffer with color red
-        //     // new Uint8Array(frame.u).fill(139);
-        //     // new Uint8Array(frame.v).fill(93);
-
-        //     controller.queueFrame(frame, Date.now());
-        // }, 1000);
+        capturer.startCapture(controller);
     },
     stopCapture: () => {
         clearInterval(this.interval);
