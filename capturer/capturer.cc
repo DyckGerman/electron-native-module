@@ -16,12 +16,29 @@ NAN_METHOD(startCapture) {
 
   auto cb = CMS::VideoFrameCallbackHolder::unwrap(info.GetIsolate(), info[0]->ToObject());
   if(cb == NULL) {
-    Nan::ThrowTypeError("cannot unwrap CustomMediaStream::VideoFrameCallback");
+    Nan::ThrowTypeError("11111 cannot unwrap CustomMediaStream::VideoFrameCallback");
     return;
   }
+  
 
-  auto frame = cb->allocate({0}, CMS::Format {600, 300});
-  cb->queue({0}, std::move(frame));
+  
+  int i = 1;
+  // for (auto i = 0; i < 10000; i++) {
+    auto frame = cb->allocate({0}, CMS::Format {100, 100});
+
+    // void * dataY = frame->data(CMS::Plane::Y);
+    // memset(dataY, 41, 1000);
+    void * dataU = frame->data(CMS::Plane::U);
+    memset(dataU, 161, 5000);
+    void * dataV = frame->data(CMS::Plane::V);
+    memset(dataV, 169, 5000);
+
+    cb->queue({0}, std::move(frame));
+  // }
+
+    auto frame = cb->allocate({0}, CMS::Format {100, 100});
+  // for (auto i = 0; i < 10000; i++) {
+  int i = 1;
 
   
 }

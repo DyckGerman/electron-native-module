@@ -1,5 +1,5 @@
 const { customMediaStream } = require('electron');
-const capturer = require('capturer/build/Debug/capturer.node');
+const capturer = require('capturer/build/Release/capturer.node');
 
 const videoElem = document.getElementById('video-element');
 
