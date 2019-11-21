@@ -3,18 +3,24 @@ const capturer = require('capturer/build/Release/capturer.node');
 
 const videoElem = document.getElementById('video-element');
 
-let track = customMediaStream.createTrack({
-    info: {
-        resolution: { width: 1920, height: 1080 },
-        frameRate: 30
-    },
-    startCapture: (controller) => {
+console.log('before createTrack');
+
+let trackInfo = {
+    resolution: { width: 1920, height: 1080 },
+    frameRate: 30
+};
+
+let track = customMediaStream.createTrack(
+    trackInfo,
+    (controller) => {
+        console.log('startCapture controller = ' + controller);
         capturer.startCapture(controller);
     },
-    stopCapture: () => {
+    () => {
+        console.log('stopCapture');
         clearInterval(this.interval);
     }
-})
+)
 
 let mediaStream = new MediaStream();
 mediaStream.addTrack(track);

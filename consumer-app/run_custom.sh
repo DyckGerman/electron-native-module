@@ -1,0 +1,1 @@
+open /Users/fedor.chegarovsky/Code/dyckgerman/electron/src/out/Debug/Electron.app --args /Users/fedor.chegarovsky/Code/dyckgerman/electron-native-module/consumer-app
