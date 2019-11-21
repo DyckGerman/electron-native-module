@@ -1,3 +1,4 @@
 native_module/build/
 
 node_modules/
+capturer/build
